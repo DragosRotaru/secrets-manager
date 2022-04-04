@@ -4,8 +4,8 @@
 #include <errno.h>
 #include "storage.h"
 
-ValidateBaseDirResult validateBaseDir() {
-    DIR* dir = opendir("mydir");
+ValidateBaseDirResult validateBaseDir(const char* dirPath) {
+    DIR* dir = opendir(dirPath);
     if (dir) {
         /* Directory exists. */
         closedir(dir);
@@ -26,7 +26,7 @@ ValidateBaseDirResult validateBaseDir() {
 
 }
 
-char* readFile(char* fileName) {
+char* readFile(const char* fileName) {
    char* buffer = NULL;
    int string_size, read_size;
    FILE* handler = fopen(fileName, "r");
@@ -65,7 +65,7 @@ char* readFile(char* fileName) {
     return buffer;
 }
 
-int writeFile(char* string, char* fileName) {
+int writeFile(const char* string, const char* fileName) {
     // Open a file for writing. 
     // (This will replace any existing file. Use "w+" for appending)
     FILE* file = fopen("fileName", "w");
