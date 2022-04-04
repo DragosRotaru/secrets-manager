@@ -4,23 +4,23 @@
 
 // This function parses the first argument and returns the Command
 ParseCommandResult parseCommand(const char* command) {
-    if (strcmp(command, "initialize"))
+    if (strcmp(command, "initialize") == 0)
     {
         return (ParseCommandResult){ .right = Initialize };
     }
-    else if (strcmp(command, "import"))
+    else if (strcmp(command, "import") == 0)
     {
         return (ParseCommandResult){ .right = Import };
     }
-    else if (strcmp(command, "serve"))
+    else if (strcmp(command, "serve") == 0)
     {
         return (ParseCommandResult){ .right = Serve };
     }
-    else if (strcmp(command, "help"))
+    else if (strcmp(command, "help") == 0)
     {
         return (ParseCommandResult){ .right = Help };
     }
-    else if (strcmp(command, "version"))
+    else if (strcmp(command, "version") == 0)
     {
         return (ParseCommandResult){ .right = Version };
     }
@@ -49,6 +49,7 @@ ParseArgsResult parseArguments (int argc, char const* argv[])
     } else {
         programSettings.command = res.right;
     }
+
 
     if (programSettings.command == Help || programSettings.command == Version ) {
         return (ParseArgsResult){ .right = programSettings };

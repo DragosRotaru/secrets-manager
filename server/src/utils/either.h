@@ -3,14 +3,14 @@
 
 /* Generic Either Type Definition */
 #define TypeDefEither(LeftType, RightType, Name) \
-    typedef union { \
+    typedef struct { \
         LeftType left; \
         RightType right; \
     } Name;
 
 /* Generic Either Error Type Definition */
 #define TypeDefErrEither(RightType, Name) \
-    typedef union { \
+    typedef struct { \
         Error left; \
         RightType right; \
     } Name;

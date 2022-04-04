@@ -1,9 +1,12 @@
+CC := gcc
+SRC := src
+OBJ := bin
 
-default: build
+SOURCES := $(wildcard $(SRC)/**/*.c) $(wildcard $(SRC)/*.c)
+OBJECTS := $(patsubst $(SRC)/%%/%.c, $(OBJ)/%%/%.o, $(SOURCES))
 
-run: build
-	./bin/vault-server
-	
-clean:
-	-rm obj/*
-	-rm bin/*
+all: $(OBJECTS)
+	$(CC) $^ -o bin/vault-server
+
+$(OBJ)/%.o: $(SRC)/%.c
+	$(CC) -I $(SRC) -c $< -o $@

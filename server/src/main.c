@@ -14,7 +14,7 @@ int main(int argc, char const* argv[])
     static const char* helpMessage =  "execute `vault-server help` for more information.";
     static const char* semVer = "0.0.1";
     // TODOmmanual.md
-    const char* manual = "";
+    const char* manual = "INSERT MANUAL HERE";
     
     // Parse arguments
     const ParseArgsResult parseArgsResult = parseArguments(argc, argv);
