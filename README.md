@@ -81,6 +81,11 @@ Identity with a password is provided to the CLI via VAULT_CLI_IDENTITY and VAULT
 - set static VM IP and forward traffic from mac with a reverse proxy when connected to CLaude
 - LetsEncrypt renews cert automatically on the remote server
 
+## SSH Keys
+
+- maintain 1 SSH key per identity and strip comment in pub key
+- for git deployments, use read-only access tokens
+
 ## Data Recovery, Availability
 
 - macbook has offline access
